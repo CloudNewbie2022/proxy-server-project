@@ -7,6 +7,12 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 const cors = require('cors');
+
+app.options('/graphql', (req, res) => {
+  res.sendStatus(204); // No Content
+});
+
+
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST'],
