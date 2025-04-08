@@ -13,6 +13,13 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Accept', 'X-Requested-With']
 }));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  next();
+});
+
 app.use(express.json());
 
 // Debug logging middleware
